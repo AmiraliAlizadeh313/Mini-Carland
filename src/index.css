@@ -1,0 +1,79 @@
+body{font-family: sans-serif;}
+
+
+
+
+.item-model{
+    margin: 0 auto;
+    
+    
+}
+
+.item-image{
+    width: 30%;
+    border-radius: inherit;
+    height: fit-content;
+    overflow: hidden;
+
+    margin-bottom: 0;
+    margin: auto;
+}
+
+.item-title{
+    margin:0 auto;
+    margin-bottom: 2rem;
+    text-align: center;
+    
+}
+
+.cars-item{
+    display: flex;
+    background-color: rgb(243, 243, 243);
+    margin-left: 0;
+    padding-left: 0;
+    width: 100%;
+    height: 6.75rem;
+    border-radius: 7px;
+    margin-bottom: 0.2rem;
+    
+}
+
+.item-content{
+    display: block;
+    margin: auto;
+    
+}
+
+
+
+.item-marks{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    font-size: 14px;
+    gap: 2rem;
+}
+
+.item-marks span{
+    margin-left: 30px;
+    
+}
+
+
+
+.item-image img { 
+    position: relative;
+    border-radius: 7px;
+    width: 100%;
+    height:100%;
+    margin: auto;
+}
+
+.cars-list{
+    border:rgb(216, 216, 216) solid 0.5px ;
+    width: 40%;
+    height: 60%;
+    padding: 0.3rem;
+    border-radius: 15px;
+    background-color: rgb(204, 204, 204);
+}
