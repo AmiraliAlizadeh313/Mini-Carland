@@ -1,79 +1,85 @@
-body{font-family: sans-serif;}
-
-
-
-
-.item-model{
-    margin: 0 auto;
-    
-    
+body {
+  font-family: sans-serif;
 }
 
-.item-image{
-    width: 30%;
-    border-radius: inherit;
-    height: fit-content;
-    overflow: hidden;
-
-    margin-bottom: 0;
-    margin: auto;
+.item-model {
+  margin: 0 auto;
 }
 
-.item-title{
-    margin:0 auto;
-    margin-bottom: 2rem;
-    text-align: center;
-    
+.item-image {
+  width: 30%;
+  border-radius: inherit;
+  height: 100%;
+  overflow: hidden;
+  margin-bottom: 0;
 }
 
-.cars-item{
-    display: flex;
-    background-color: rgb(243, 243, 243);
-    margin-left: 0;
-    padding-left: 0;
-    width: 100%;
-    height: 6.75rem;
-    border-radius: 7px;
-    margin-bottom: 0.2rem;
-    
+.item-title {
+  margin: 0 auto;
+  margin-bottom: 1.2rem;
+  text-align: center;
 }
 
-.item-content{
-    display: block;
-    margin: auto;
-    
+.cars-item {
+  display: flex;
+  background-color: rgb(243, 243, 243);
+  margin-left: 0;
+  padding-left: 0;
+  width: 100%;
+  justify-content: space-between;
+  height: 8rem;
+  border-radius: 7px;
+  margin-bottom: 0.5rem;
 }
 
-
-
-.item-marks{
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    font-size: 14px;
-    gap: 2rem;
+.cars-item:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  transition: all 0.5s;
 }
 
-.item-marks span{
-    margin-left: 30px;
-    
+.item-content {
+  display: block;
+  margin: auto;
+  width: 100%;
 }
 
-
-
-.item-image img { 
-    position: relative;
-    border-radius: 7px;
-    width: 100%;
-    height:100%;
-    margin: auto;
+.item-marks {
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+  align-items: end;
+  justify-content: center;
+  font-size: 14px;
+  gap: 1.5rem;
+  margin: auto;
 }
 
-.cars-list{
-    border:rgb(216, 216, 216) solid 0.5px ;
-    width: 40%;
-    height: 60%;
-    padding: 0.3rem;
-    border-radius: 15px;
-    background-color: rgb(204, 204, 204);
+.item-marks span {
+  background-color: rgb(212, 209, 209);
+  font-weight: 600;
+  padding: 6px;
+  border-radius: 4px;
+  width: auto;
+  font-size: smaller;
+  white-space: nowrap;
+
+  height: 1rem;
+}
+
+.item-image img {
+  position: relative;
+  border-radius: 7px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.cars-list {
+  width: 50%;
+  height: 30rem;
+  overflow-y: scroll;
+  padding: 0.3rem;
+  border-radius: 15px;
+  background-color: rgb(235, 235, 235);
 }
