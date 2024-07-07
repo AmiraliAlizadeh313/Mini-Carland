@@ -2,6 +2,13 @@ body {
   font-family: sans-serif;
 }
 
+.mini-carland{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  border: 1px solid black;
+}
+
 .item-model {
   margin: 0 auto;
 }
@@ -36,6 +43,64 @@ body {
   cursor: pointer;
   transform: scale(1.04);
   transition: all 0.5s;
+}
+
+
+
+.form-add-car{
+  display: block;
+  width: 50%;
+  border: 1px black solid;
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color:rgb(235, 235, 235) ;
+}
+
+
+.input-model{
+  margin-top:1rem ;
+}
+
+
+.input-model label{
+  margin-right:0.5rem ;
+
+}
+
+.input-color{
+  margin-top: 1rem;
+}
+
+.input-color select{
+  padding: 5px;
+  outline: solid 1px rgb(200, 200, 200);
+  border: rgb(230, 230, 230) solid 1px;
+  border-radius: 4px;
+}
+
+.input-model input{
+   outline:solid 1px rgb(200, 200, 200);
+  padding: 5px;
+  border: rgb(230, 230, 230) solid 1px;
+  border-radius: 4px;
+
+}
+
+.input-company input{
+  outline:solid 1px rgb(200, 200, 200);
+
+  padding: 5px;
+  border: rgb(230, 230, 230) solid 1px;
+  border-radius: 4px;
+
+}
+
+.input-company label{
+  margin-right:0.5rem ;
+}
+
+.input-company{
+  margin-top: 1rem;
 }
 
 .item-content {
@@ -76,9 +141,10 @@ body {
 }
 
 .cars-list {
-  width: 50%;
+  width: 90%;
   height: 30rem;
   overflow-y: scroll;
+  overflow-x: hidden;
   padding: 0.3rem;
   border-radius: 15px;
   background-color: rgb(235, 235, 235);
