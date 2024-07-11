@@ -2,8 +2,9 @@ body {
   font-family: sans-serif;
 }
 
-input ,select{
-  outline:solid 1px rgb(200, 200, 200);
+input,
+select {
+  outline: solid 1px rgb(200, 200, 200);
   padding: 5px;
   border: rgb(230, 230, 230) solid 1px;
   border-radius: 4px;
@@ -12,16 +13,68 @@ input ,select{
   width: 50%;
 }
 
-select{
+select {
   cursor: pointer;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
-.mini-carland{
+
+.card-image{
+  border-radius: inherit;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+.card-model {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-title span {
+
+  font-weight: 200;
+  margin: 0 auto;
+  padding: 4px;
+  width: auto;
+}
+
+.card-description p{
+  line-height: 1.5rem;
+}
+
+.card-title {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+.car-card {
+  border-radius: 7px;
+
+  width: 60%;
+  overflow-y: scroll;
+  margin: auto;
+  background-color: rgb(235, 235, 235);
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-image img {
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.mini-carland {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-
 }
 
 .item-model {
@@ -31,7 +84,7 @@ select{
 .item-image {
   width: 30%;
   border-radius: inherit;
-  height: 100%;
+
   overflow: hidden;
   margin-bottom: 0;
 }
@@ -60,112 +113,103 @@ select{
   transition: all 0.5s;
 }
 
-
-.form-buttons{
+.form-buttons {
   display: flex;
   justify-content: space-between;
 }
 
-.btn{
+.btn {
   padding: 8px;
   border-radius: 4px;
   margin-top: 2rem;
-  background-color: rgb(200, 200,200 );
+  background-color: rgb(200, 200, 200);
   border: 0;
 }
 
-.btn:hover{
-  background-color: rgb(210,210,210);
+.btn:hover {
+  background-color: rgb(210, 210, 210);
   cursor: pointer;
   transform: scale(1.1);
   transition: all 0.2s;
 }
 
-
-.form-add-car{
+.form-add-car {
   display: block;
   width: 50%;
   height: 27rem;
-  padding:1rem;
-  border-radius:7px ;
+  padding: 1rem;
+  border-radius: 7px;
   margin: 0 auto;
   margin-top: 1rem;
   margin-right: 2rem;
   padding-top: 0;
-  background-color:rgb(235, 235, 235) ;
+  background-color: rgb(235, 235, 235);
 }
 
-
-.input-price{
+.input-price {
   text-align: center;
   margin: auto;
   display: flex;
   margin-top: 1.5rem;
 }
 
-
-.input-madein{
+.input-madein {
   margin-top: 1.5rem;
   display: flex;
   white-space: nowrap;
 }
 
-.input-description{
+.input-description {
   text-align: start;
   white-space: nowrap;
   margin-top: 1.5rem;
   display: flex;
   align-items: center;
-
 }
 
-.input-description textarea{
+.input-description textarea {
   width: 50%;
-  outline:solid 1px rgb(200, 200, 200);
+  outline: solid 1px rgb(200, 200, 200);
   padding: 5px;
   border: rgb(230, 230, 230) solid 1px;
   border-radius: 4px;
   margin-left: 0.5rem;
-  
+
   height: 5rem;
 }
 
-
-.input-price label{
-  white-space: nowrap;;
+.input-price label {
+  white-space: nowrap;
 }
-.input-price input{
-  outline:solid 1px rgb(200, 200, 200);
+.input-price input {
+  outline: solid 1px rgb(200, 200, 200);
   padding: 5px;
   border: rgb(230, 230, 230) solid 1px;
   border-radius: 4px;
   margin-left: 0.5rem;
 }
 
-.input-model{
-text-align: center;
-width: 100%;
+.input-model {
+  text-align: center;
+  width: 100%;
   margin: auto;
   display: flex;
-  margin-top:1rem ;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
-
 }
 
-
-
-.input-color{
+.input-color {
   display: flex;
   text-align: center;
   margin: auto;
   margin-top: 1.5rem;
 }
 
-.input-color label{
+.input-color label {
   white-space: nowrap;
 }
 
-.input-color select{
+.input-color select {
   margin-left: 0.5rem;
   padding: 5px;
   outline: solid 1px rgb(200, 200, 200);
@@ -173,40 +217,36 @@ width: 100%;
   border-radius: 4px;
 }
 
-
-
-.input-model label{
-  margin-right:0.5rem ;
+.input-model label {
+  margin-right: 0.5rem;
   white-space: nowrap;
 }
 
-.input-model input{
-  outline:solid 1px rgb(200, 200, 200);
+.input-model input {
+  outline: solid 1px rgb(200, 200, 200);
   padding: 5px;
   border: rgb(230, 230, 230) solid 1px;
   border-radius: 4px;
-
 }
 
-.input-company label{
+.input-company label {
   white-space: nowrap;
 }
 
-.input-company input{
-  outline:solid 1px rgb(200, 200, 200);
+.input-company input {
+  outline: solid 1px rgb(200, 200, 200);
 
   padding: 5px;
   border: rgb(230, 230, 230) solid 1px;
   border-radius: 4px;
-
 }
 
-.input-company label{
+.input-company label {
   white-space: nowrap;
-  margin-right:0.5rem ;
+  margin-right: 0.5rem;
 }
 
-.input-company{
+.input-company {
   text-align: center;
   display: flex;
   margin-top: 1.5rem;
@@ -251,7 +291,7 @@ width: 100%;
 }
 
 .cars-list {
-  width: 120%;
+  width: 100%;
   height: 30rem;
   overflow-y: scroll;
   overflow-x: hidden;

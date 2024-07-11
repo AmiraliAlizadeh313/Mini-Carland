@@ -8,7 +8,6 @@ const Cars = [
     color: "Black",
     description:
       "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
-
   },
   {
     id: 933372,
@@ -20,7 +19,6 @@ const Cars = [
     color: "White",
     description:
       "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
-
   },
   {
     id: 499476,
@@ -31,7 +29,6 @@ const Cars = [
     color: "Gray",
     description:
       "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
-    
   },
 ];
 
@@ -40,7 +37,39 @@ function App() {
     <>
       <div className="mini-carland">
         <CarsList></CarsList>
-        <FormAddCar></FormAddCar>
+        <Car></Car>
+      </div>
+    </>
+  );
+}
+
+function Car() {
+  return (
+    <>
+      <div className="car-card">
+        <div className="card-image"><img alt="image" src={require("./images/Toyotaimage.jpg")}></img></div>
+
+        <div className="card-content">
+          <div className="card-title">
+            <h2 className="card-model">Landcruiser</h2>
+              <span>Toyota</span>
+        </div>
+
+        <div className="card-marks">
+          <span>Price $1000000</span>
+          <span>Made in 2023</span>
+          <span>Color Black</span>
+        </div>
+
+          <div className="card-description">
+            <p>
+              In publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -72,7 +101,7 @@ function FormAddCar() {
         </div>
         <div className="input-price">
           <label>Car Price</label>
-          <input type="number" ></input>
+          <input type="number"></input>
         </div>
         <div className="input-madein">
           <label>Car Made in</label>
@@ -82,9 +111,6 @@ function FormAddCar() {
           <label>Car Information</label>
           <textarea type="text"></textarea>
         </div>
-         
- 
-
 
         <div className="form-buttons">
           <Button>Cancel</Button>
