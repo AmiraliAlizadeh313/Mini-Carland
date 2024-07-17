@@ -37,38 +37,59 @@ function App() {
     <>
       <div className="mini-carland">
         <CarsList></CarsList>
-        <Car></Car>
+        <CarCard></CarCard>
+        {/* <FormAddCar></FormAddCar> */}
       </div>
     </>
   );
 }
 
-function Car() {
+function CarCard() {
   return (
     <>
-      <div className="car-card">
-        <div className="card-image"><img alt="image" src={require("./images/Toyotaimage.jpg")}></img></div>
-
-        <div className="card-content">
-          <div className="card-title">
-            <h2 className="card-model">Landcruiser</h2>
-              <span>Toyota</span>
-        </div>
-
-        <div className="card-marks">
-          <span>Price $1000000</span>
-          <span>Made in 2023</span>
-          <span>Color Black</span>
-        </div>
-
-          <div className="card-description">
-            <p>
-              In publishing and graphic design, Lorem ipsum is a placeholder text
-              commonly used to demonstrate the visual form of a document or a
-              typeface without relying on meaningful content. Lorem ipsum may be
-              used as a placeholder before the final copy is available
-            </p>
+      <div className="card-wrapper">
+        <div className="car-card">
+          <div className="card-image">
+            <img alt="image" src={require("./images/Toyotaimage.jpg")}></img>
           </div>
+          <div className="card-content">
+            <div className="card-title">
+              <h2 className="card-model">Landcruiser</h2>
+              <span>Toyota</span>
+            </div>
+            <ul className="card-marks">
+              <li>
+                <span>Price $1000000</span>
+              </li>
+              <li>
+                <span>Made in 2023</span>
+              </li>
+              <li>
+                <span>Color Black</span>
+              </li>
+            </ul>
+            <div className="card-description">
+              <p>
+                In publishing and graphic design, Lorem ipsum is a placeholder
+                text commonly used to demonstrate the visual form of a document
+                or a typeface without relying on meaningful content. Lorem ipsum
+                may be used as a placeholder before the final copy is available
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="btn-phone-wrapper">
+          {" "}
+          <button>
+            {" "}
+            <div class="btn-content">
+              <img
+                className="phone-icon"
+                src={require("./images/icons8-phone-30.png")}
+              ></img>
+              <text>Call to seller</text>
+            </div>
+          </button>
         </div>
       </div>
     </>

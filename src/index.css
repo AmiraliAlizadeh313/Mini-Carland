@@ -21,13 +21,11 @@ select {
   display: none;
 }
 
-
-.card-image{
+.card-image {
   border-radius: inherit;
   overflow: hidden;
   width: 100%;
 }
-
 
 .card-model {
   margin: 0 auto;
@@ -36,14 +34,39 @@ select {
 }
 
 .card-title span {
-
   font-weight: 200;
   margin: 0 auto;
   padding: 4px;
   width: auto;
 }
 
-.card-description p{
+.card-marks {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+  list-style-type: none;
+  margin: 0 auto;
+  position: relative;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.card-description {
+  padding: 1rem;
+  box-shadow: 1px 1px rgb(190, 190, 190);
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+.card-marks li {
+  text-shadow: 2px 2px rgb(190, 190, 190);
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 1px 1px rgb(190, 190, 190);
+  border-bottom: solid 1px rgb(190, 190, 190);
+}
+
+.card-description p {
   line-height: 1.5rem;
 }
 
@@ -52,11 +75,94 @@ select {
   display: block;
   margin: 0 auto;
 }
+/* 
+.card-wrapper button{
+  margin: auto;
+  top: auto;
+  width: auto;
+  margin-bottom: 1rem;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  position:absolute;
+  align-items: center;
+} */
+
+.card-wrapper {
+  width: 60%;
+  margin: auto;
+  position: relative;
+}
+
+.btn-phone-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.btn-phone-wrapper button:hover{
+  background-color: #00FF40;
+  cursor: pointer;
+
+}
+
+.btn-phone-wrapper button {
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  width: 40%;
+  display: flex;
+  gap: 4px;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  bottom: 3px;
+  padding:0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 10px;
+  border: 0;
+  background-color:#4CBB17;
+}
+
+.btn-content text{
+  margin-top: 2px;
+}
+.btn-content{
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+
+}
+
+.phone-icon{
+  margin: auto;
+  width: 1.1rem;
+  margin-right: 2px;
+  padding: 0;
+  margin-bottom: 1px;
+}
+
+.btn-phone {
+  display: flex;
+  background-color: rebeccapurple;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+}
+
 .car-card {
   border-radius: 7px;
+  position: relative;
+  width: 100%;
 
-  width: 60%;
   overflow-y: scroll;
+  height: 30rem;
   margin: auto;
   background-color: rgb(235, 235, 235);
 }
@@ -68,7 +174,6 @@ select {
 .card-image img {
   width: 100%;
   overflow: hidden;
-
 }
 
 .mini-carland {
