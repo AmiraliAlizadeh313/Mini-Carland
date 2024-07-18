@@ -404,3 +404,46 @@ select {
   border-radius: 15px;
   background-color: rgb(235, 235, 235);
 }
+
+.media-list li {
+  margin-top: 2rem;
+  list-style-type: none;
+  display: grid;
+  font-size: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+}
+
+.seller-info-content{
+  margin: auto;
+}
+.media-list{
+
+  margin: auto;
+  
+
+}
+
+.seller-info-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200%;
+}
+
+
+
+.seller-info{
+  bottom: 50%;
+  box-shadow: 6.8px 13.6px 13.6px hsl(0deg 0% 0% / 0.29);
+  border-radius: 8px;
+  top: 50% ;
+  width: 35%;
+  display: flex;
+  align-items: center;
+  height: 50%;
+  background-color:rgb(200, 200, 200) ;
+  margin: auto;
+  position: absolute;
+
+}

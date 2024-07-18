@@ -38,6 +38,7 @@ function App() {
       <div className="mini-carland">
         <CarsList></CarsList>
         <CarCard></CarCard>
+        <ShowSellerInfo></ShowSellerInfo>
         {/* <FormAddCar></FormAddCar> */}
       </div>
     </>
@@ -95,6 +96,30 @@ function CarCard() {
     </>
   );
 }
+
+
+function ShowSellerInfo(){
+  return (
+    <>
+
+      <div className="seller-info-wrapper">
+        <div className="seller-info">
+          <div className="seller-info-content">
+            <ul className="media-list">
+              <li className="media-item"> Phone Nmber <number>09961030593 </number></li>
+              <li className="media-item">Instagram <text>@amiralializadeh777</text></li>
+              <li className="media-item">Telegram <text>amirali313</text></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    
+    </>
+  )
+}
+
+
 
 function FormAddCar() {
   return (
