@@ -38,7 +38,7 @@ function App() {
       <div className="mini-carland">
         <CarsList></CarsList>
         <CarCard></CarCard>
-        <ShowSellerInfo></ShowSellerInfo>
+        {/* <ShowSellerInfo></ShowSellerInfo> */}
         {/* <FormAddCar></FormAddCar> */}
       </div>
     </>
@@ -81,15 +81,18 @@ function CarCard() {
         </div>
         <div className="btn-phone-wrapper">
           {" "}
-          <button>
+          <button className="contact-button">
             {" "}
             <div class="btn-content">
               <img
                 className="phone-icon"
                 src={require("./images/icons8-phone-30.png")}
               ></img>
-              <text>Call to seller</text>
+              <text>Contact</text>
             </div>
+          </button>
+          <button className="close-button">
+            <img src={require("./images/icons8-close-50 (1).png")}></img>
           </button>
         </div>
       </div>
@@ -97,29 +100,49 @@ function CarCard() {
   );
 }
 
-
-function ShowSellerInfo(){
+function ShowSellerInfo() {
   return (
     <>
-
       <div className="seller-info-wrapper">
         <div className="seller-info">
           <div className="seller-info-content">
+            <div className="info-close-wrapper">
+              <img src={require("./images/icons8-close-50 (1).png")}></img>
+            </div>
+            <div className="seller-name-wrapper">
+              <h2 className="seller-name">Rayan Alizadeh</h2>
+            </div>
             <ul className="media-list">
-              <li className="media-item"> Phone Nmber <number>09961030593 </number></li>
-              <li className="media-item">Instagram <text>@amiralializadeh777</text></li>
-              <li className="media-item">Telegram <text>amirali313</text></li>
+              <li className="media-item-phone">
+                <div className="info-title">
+                  <img src={require("./images/icons8-phone-50.png")}></img>{" "}
+                  Phone Nmber
+                </div>{" "}
+                <number>09961030593 </number>
+              </li>
+              <li className="media-item">
+                {" "}
+                <div class="info-title">
+                  <img src={require("./images/icons8-instagram-50.png")}></img>{" "}
+                  Instagram
+                </div>{" "}
+                <text>@amiralializadeh777</text>
+              </li>
+              <li className="media-item">
+                {" "}
+                <div className="info-title">
+                  <img src={require("./images/icons8-telegram-50.png")}></img>{" "}
+                  Telegram
+                </div>{" "}
+                <text>amirali313</text>
+              </li>
             </ul>
           </div>
         </div>
       </div>
-
-    
     </>
-  )
+  );
 }
-
-
 
 function FormAddCar() {
   return (
