@@ -37,9 +37,9 @@ function App() {
     <>
       <div className="mini-carland">
         <CarsList></CarsList>
-        {/* <CarCard></CarCard> */}
+        <CarCard></CarCard>
         {/* <ShowSellerInfo></ShowSellerInfo> */}
-        <FormAddCar></FormAddCar>
+        {/* <FormAddCar></FormAddCar> */}
       </div>
     </>
   );
