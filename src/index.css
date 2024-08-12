@@ -164,6 +164,9 @@ select {
   width: 20%;
 }
 
+
+
+
 .btn-content text{
   margin-top: 2px;
   font-weight: 600;
@@ -258,7 +261,7 @@ select {
 
 .cars-item:hover {
   cursor: pointer;
-  transform: scale(1.04);
+  transform: scale(0.95);
   transition: all 0.5s;
 }
 
@@ -284,8 +287,8 @@ select {
 
 .form-add-car {
   display: block;
-  width: 50%;
-  height: 27rem;
+  width: 60%;
+  height: 30rem;
   padding: 1rem;
   border-radius: 7px;
   margin: 0 auto;
@@ -300,6 +303,17 @@ select {
   margin: auto;
   display: flex;
   margin-top: 1.5rem;
+}
+
+.input-image{
+  margin-top: 1.5rem;
+}
+
+.input-image input{
+  width: 10%;
+  margin-left: 1rem;
+  color: transparent;
+  background-color: white;
 }
 
 .input-madein {

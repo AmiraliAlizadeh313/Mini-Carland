@@ -37,9 +37,9 @@ function App() {
     <>
       <div className="mini-carland">
         <CarsList></CarsList>
-        <CarCard></CarCard>
+        {/* <CarCard></CarCard> */}
         {/* <ShowSellerInfo></ShowSellerInfo> */}
-        {/* <FormAddCar></FormAddCar> */}
+        <FormAddCar></FormAddCar>
       </div>
     </>
   );
@@ -179,6 +179,11 @@ function FormAddCar() {
         <div className="input-description">
           <label>Car Information</label>
           <textarea type="text"></textarea>
+        </div>
+
+        <div className="input-image">
+          <label> Car Image</label>
+          <input type="image"  ></input>
         </div>
 
         <div className="form-buttons">
