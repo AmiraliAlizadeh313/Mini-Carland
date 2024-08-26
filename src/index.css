@@ -1,4 +1,5 @@
 body {
+  width: 100vw;
   font-family: sans-serif;
 }
 
@@ -28,6 +29,7 @@ select {
   border-radius: inherit;
   overflow: hidden;
   width: 100%;
+  cursor: pointer;
 }
 
 .card-model {
@@ -547,4 +549,118 @@ select {
   background-color:rgb(200, 200, 200) ;
   margin: auto;
   position: absolute;
+}
+
+
+
+.car-image-wrapper{
+  background:linear-gradient(135deg,rgba(270,270,270,0.1),rgba(270,270,270,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* border:solid 1px rgba(255,255,255,0.18) ; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+
+  position: absolute;
+}
+
+.btn-wrapper{
+  display: flex;
+}
+
+.btn-wrapper span{
+  position: absolute;
+  right:-6%;
+  cursor: pointer;
+  top: -8%;
+}
+
+.btn-wrapper span:hover{
+
+  transform: scale(0.8);
+  transition: transform 0.2s;
+}
+
+.zoom-btn-wrapper{
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+}
+
+.zoom-btn-wrapper .zoom-out-btn{
+
+  background: white;
+  margin-top:2.5rem;
+  padding: 5px;
+  cursor: pointer;
+}
+.zoom-btn-wrapper .zoom-in-btn{
+  background: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.zoom-btn-wrapper .zoom-in-btn:hover {
+  transform: scale(0.8);
+  transition:transform  0.2s;
+}
+
+.zoom-btn-wrapper .zoom-out-btn:hover {
+  transform: scale(0.8);
+  transition:transform  0.2s;
+}
+.zoom-btn-wrapper .zoom-reset-btn:hover {
+  transform: scale(0.8);
+  transition:transform  0.2s;
+}
+
+
+.zoom-btn-wrapper .zoom-reset-btn{
+
+  background: white;
+  padding: 5px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.car-image-container{
+  height: 30rem;
+  margin: auto;
+  position:relative;
+  margin-top: 5rem;
+  width: 50%;
+  max-width: 50%;
+
+
+}
+
+.car-image {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 6.8px 13.6px 13.6px hsl(0deg 0% 0% / 0.29);
+  overflow: hidden;
+}
+
+
+.car-image{
+  cursor: move; 
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.car-image:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }

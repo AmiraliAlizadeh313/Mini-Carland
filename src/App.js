@@ -1,3 +1,11 @@
+
+import { useRef, useState } from "react";
+import {
+  TransformComponent,
+  TransformWrapper,
+  useControls,
+} from "react-zoom-pan-pinch";
+
 const Cars = [
   {
     id: 118836,
@@ -33,11 +41,15 @@ const Cars = [
 ];
 
 function App() {
+  const [isImageZoom, setIsImageZoom] = useState(false)
+
   return (
     <>
       <div className="mini-carland">
         <CarsList></CarsList>
-        <CarCard></CarCard>
+        <CarCard setIsImageZoom={setIsImageZoom} ></CarCard>
+        {isImageZoom ?        <CarImage setIsImageZoom={setIsImageZoom} ></CarImage> :null}
+
         {/* <ShowSellerInfo></ShowSellerInfo> */}
         {/* <FormAddCar></FormAddCar> */}
       </div>
@@ -45,12 +57,12 @@ function App() {
   );
 }
 
-function CarCard() {
+function CarCard({setIsImageZoom}) {
   return (
     <>
       <div className="card-wrapper">
         <div className="car-card">
-          <div className="card-image">
+          <div onClick={()=>setIsImageZoom(true)} className="card-image">
             <img alt="image" src={require("./images/Toyotaimage.jpg")}></img>
           </div>
           <div className="card-content">
@@ -91,7 +103,7 @@ function CarCard() {
               <text>Contact</text>
             </div>
           </button>
-          <button className="close-button">
+          <button  className="close-button">
             <img src={require("./images/icons8-close-50 (1).png")}></img>
           </button>
         </div>
@@ -183,7 +195,7 @@ function FormAddCar() {
 
         <div className="input-image">
           <label> Car Image</label>
-          <input type="image"  ></input>
+          <input type="image"></input>
         </div>
 
         <div className="form-buttons">
@@ -222,6 +234,73 @@ function CarsList() {
 
 function Button({ children }) {
   return <button className="btn">{children}</button>;
+}
+
+function Controls() {
+  const { zoomIn, zoomOut, resetTransform } = useControls();
+  return (
+    <>
+      <div className="zoom-btn-wrapper">
+        <span
+          style={{ position: "absolute" }}
+          onClick={()=>zoomIn()}
+          className="zoom-in-btn"
+        >
+          <img src={require("./images/icons8-plus-24.png")}></img>
+        </span>
+        <span className="zoom-out-btn">
+          <img
+            onClick={()=>zoomOut()}
+            src={require("./images/icons8-minus-24.png")}
+          ></img>
+        </span>
+        <span className="zoom-reset-btn">
+          <img
+            onClick={()=>resetTransform()}
+            src={require("./images/icons8-reset-24.png")}
+          ></img>
+        </span>
+      </div>
+    </>
+  );
+}
+
+function CarImage({setIsImageZoom}) {
+  
+
+  return (
+    <>
+      <div style={{ overflow: "hidden" }} className="car-image-wrapper">
+        <div style={{ position: "relative" }} className="car-image-container">
+          <div className="btn-wrapper">
+            <span onClick={()=>setIsImageZoom(false)} className="btn-close">
+              <img src={require("./images/icons8-close-30.png")}></img>
+            </span>
+          </div>
+          {/* <img draggable="false" style={{transform:`scale:(${scale}) translate:(${position.x}px,${position.y}px)`,}} src={require("./images/Toyotaimage.jpg")} > */}
+          <div class="image-wrapper">
+            {/* <img draggable="false" style={{transform:`scale(${scale})` , translate:`${position.x}px,${position.y}px`} }  src={require("./images/Toyotaimage.jpg")} > */}
+            <TransformWrapper
+              initialScale={1}
+              initialPositionX={0}
+              initialPositionY={0}
+            >
+              {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+                <>
+                
+                <Controls></Controls>
+                  <TransformComponent>
+                    <img className="car-image" src={require("./images/Toyotaimage.jpg")}></img>
+                  </TransformComponent>
+             
+                </>
+              )}
+            </TransformWrapper>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default App;
