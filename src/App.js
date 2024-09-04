@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import {
   TransformComponent,
@@ -41,28 +40,44 @@ const Cars = [
 ];
 
 function App() {
-  const [isImageZoom, setIsImageZoom] = useState(false)
+  const [isImageZoom, setIsImageZoom] = useState(false);
+  const [isCarCard, setIsCarCard] = useState(false);
+  const [isShowSellerInfo, setIsShowSellerInfo] = useState(false);
 
   return (
     <>
       <div className="mini-carland">
-        <CarsList></CarsList>
-        <CarCard setIsImageZoom={setIsImageZoom} ></CarCard>
-        {isImageZoom ?        <CarImage setIsImageZoom={setIsImageZoom} ></CarImage> :null}
+        <CarsList setIsCarCard={setIsCarCard}></CarsList>
+        {isCarCard ? (
+          <CarCard
+            setIsCarCard={setIsCarCard}
+            setIsImageZoom={setIsImageZoom}
+            setIsShowSellerInfo={setIsShowSellerInfo}
+          ></CarCard>
+        ) : null}
 
-        {/* <ShowSellerInfo></ShowSellerInfo> */}
+        {isImageZoom ? (
+          <CarImage setIsImageZoom={setIsImageZoom}></CarImage>
+        ) : null}
+
+        {isShowSellerInfo ? (
+          <ShowSellerInfo
+            setIsShowSellerInfo={setIsShowSellerInfo}
+          ></ShowSellerInfo>
+        ) : null}
+
         {/* <FormAddCar></FormAddCar> */}
       </div>
     </>
   );
 }
 
-function CarCard({setIsImageZoom}) {
+function CarCard({ setIsImageZoom, setIsCarCard, setIsShowSellerInfo }) {
   return (
     <>
       <div className="card-wrapper">
         <div className="car-card">
-          <div onClick={()=>setIsImageZoom(true)} className="card-image">
+          <div onClick={() => setIsImageZoom(true)} className="card-image">
             <img alt="image" src={require("./images/Toyotaimage.jpg")}></img>
           </div>
           <div className="card-content">
@@ -93,7 +108,10 @@ function CarCard({setIsImageZoom}) {
         </div>
         <div className="btn-phone-wrapper">
           {" "}
-          <button className="contact-button">
+          <button
+            onClick={() => setIsShowSellerInfo(true)}
+            className="contact-button"
+          >
             {" "}
             <div class="btn-content">
               <img
@@ -103,7 +121,7 @@ function CarCard({setIsImageZoom}) {
               <text>Contact</text>
             </div>
           </button>
-          <button  className="close-button">
+          <button onClick={() => setIsCarCard(false)} className="close-button">
             <img src={require("./images/icons8-close-50 (1).png")}></img>
           </button>
         </div>
@@ -112,13 +130,16 @@ function CarCard({setIsImageZoom}) {
   );
 }
 
-function ShowSellerInfo() {
+function ShowSellerInfo({ setIsShowSellerInfo }) {
   return (
     <>
       <div className="seller-info-wrapper">
         <div className="seller-info">
           <div className="seller-info-content">
-            <div className="info-close-wrapper">
+            <div
+              onClick={() => setIsShowSellerInfo(false)}
+              className="info-close-wrapper"
+            >
               <img src={require("./images/icons8-close-50 (1).png")}></img>
             </div>
             <div className="seller-name-wrapper">
@@ -207,27 +228,31 @@ function FormAddCar() {
   );
 }
 
-function CarsList() {
+function CarsList({ setIsCarCard }) {
   return (
     <>
-      <ul className="cars-list">
-        <li className="cars-item">
-          <div class="item-image">
-            <img src={require("./images/Toyotaimage.jpg")} alt="toyota"></img>
-          </div>
-          <div className="item-content">
-            <div className="item-title">
-              <h2 className="item-model">Landcruiser </h2>
-              <span className="item-company"> Toyota</span>
+      <div className="cars-list-wrapper">
+        <ul className="cars-list">
+          <li onClick={() => setIsCarCard(true)} className="cars-item">
+            <div class="item-image">
+              <img src={require("./images/Toyotaimage.jpg")} alt="toyota"></img>
             </div>
-            <div class="item-marks">
-              <span>Price $1000000</span>
-              <span className="item-madein">Made in 2023</span>
-              <span className="item-color">Black</span>
+            <div className="item-content">
+              <div className="item-title">
+                <h2 className="item-model">Landcruiser </h2>
+                <span className="item-company"> Toyota</span>
+              </div>
+              <div class="item-marks">
+                <span>Price $1000000</span>
+                <span className="item-madein">Made in 2023</span>
+                <span className="item-color">Black</span>
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+        <div className="sell-car-btn-wrapper"><button className="sell-car-btn"> Sell Your Car </button></div>
+        </div>
+
     </>
   );
 }
@@ -243,20 +268,20 @@ function Controls() {
       <div className="zoom-btn-wrapper">
         <span
           style={{ position: "absolute" }}
-          onClick={()=>zoomIn()}
+          onClick={() => zoomIn()}
           className="zoom-in-btn"
         >
           <img src={require("./images/icons8-plus-24.png")}></img>
         </span>
         <span className="zoom-out-btn">
           <img
-            onClick={()=>zoomOut()}
+            onClick={() => zoomOut()}
             src={require("./images/icons8-minus-24.png")}
           ></img>
         </span>
         <span className="zoom-reset-btn">
           <img
-            onClick={()=>resetTransform()}
+            onClick={() => resetTransform()}
             src={require("./images/icons8-reset-24.png")}
           ></img>
         </span>
@@ -265,15 +290,13 @@ function Controls() {
   );
 }
 
-function CarImage({setIsImageZoom}) {
-  
-
+function CarImage({ setIsImageZoom }) {
   return (
     <>
       <div style={{ overflow: "hidden" }} className="car-image-wrapper">
         <div style={{ position: "relative" }} className="car-image-container">
           <div className="btn-wrapper">
-            <span onClick={()=>setIsImageZoom(false)} className="btn-close">
+            <span onClick={() => setIsImageZoom(false)} className="btn-close">
               <img src={require("./images/icons8-close-30.png")}></img>
             </span>
           </div>
@@ -287,12 +310,13 @@ function CarImage({setIsImageZoom}) {
             >
               {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
                 <>
-                
-                <Controls></Controls>
+                  <Controls></Controls>
                   <TransformComponent>
-                    <img className="car-image" src={require("./images/Toyotaimage.jpg")}></img>
+                    <img
+                      className="car-image"
+                      src={require("./images/Toyotaimage.jpg")}
+                    ></img>
                   </TransformComponent>
-             
                 </>
               )}
             </TransformWrapper>

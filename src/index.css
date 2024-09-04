@@ -18,9 +18,6 @@ select {
   cursor: pointer;
 }
 
-
-
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -109,46 +106,40 @@ select {
   align-items: center;
 }
 
-.btn-phone-wrapper .contact-button:hover{
-  background-color: #00FF40;
+.btn-phone-wrapper .contact-button:hover {
+  background-color: #00ff40;
   cursor: pointer;
-
 }
 
-.btn-phone-wrapper .contact-button{
-
+.btn-phone-wrapper .contact-button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position:absolute;
+  position: absolute;
   width: 30%;
   display: flex;
- 
+
   margin: auto;
 
-
   bottom: 3px;
-  padding:0.5rem;
+  padding: 0.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
   border-radius: 10px;
   border: 0;
-  background-color:#4CBB17;
+  background-color: #4cbb17;
 }
 
-
-.close-button img{
-
+.close-button img {
   width: 1.5rem;
-
 }
 
-.close-button:hover{
+.close-button:hover {
   cursor: pointer;
-  background-color: #FF004F;
+  background-color: #ff004f;
 }
 
-.close-button{
+.close-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,34 +152,29 @@ select {
   bottom: 0.7%;
   border-radius: 7px;
   border: 0;
-  background-color: #CF1020;
+  background-color: #cf1020;
   margin: auto;
   width: 20%;
 }
 
-
-
-
-.btn-content text{
+.btn-content text {
   margin-top: 2px;
   font-weight: 600;
-  font-size:12px;
+  font-size: 12px;
 }
 
-
-.btn-phone-wrapper{
+.btn-phone-wrapper {
   display: flex;
   justify-content: space-between;
   gap: 4rem;
 }
 
-.btn-content{
+.btn-content {
   display: flex;
   justify-content: center;
-  
 }
 
-.phone-icon{
+.phone-icon {
   margin: auto;
   width: 1.1rem;
   margin-right: 2px;
@@ -307,11 +293,11 @@ select {
   margin-top: 1.5rem;
 }
 
-.input-image{
+.input-image {
   margin-top: 1.5rem;
 }
 
-.input-image input{
+.input-image input {
   width: 10%;
   margin-left: 1rem;
   color: transparent;
@@ -455,8 +441,6 @@ select {
   margin: auto;
 }
 
-
-
 .cars-list {
   width: 100%;
   height: 30rem;
@@ -476,85 +460,75 @@ select {
   gap: 5%;
 }
 
-
-.info-close-wrapper{
+.info-close-wrapper {
   display: flex;
-  width: 100%;
-
+  width: 103%;
   justify-content: end;
-
 }
 
-.info-close-wrapper img:hover{
+.info-close-wrapper img:hover {
   cursor: pointer;
-  transform:scale(0.8);
+  transform: scale(0.8);
   transition: all 0.2s;
 }
 
-.info-close-wrapper img{
+.info-close-wrapper img {
   width: 1.5rem;
   margin-top: 7px;
+  margin-right: 0;
 }
 
-
-.seller-info-content{
+.seller-info-content {
   margin: auto;
 }
-.media-list{
+.media-list {
   margin: auto;
-  
 }
 
-.info-title img{
+.info-title img {
   width: 1.3rem;
   margin-right: 0.5rem;
 }
 
-.info-title{
+.info-title {
   text-align: center;
   align-items: center;
 
   display: flex;
 }
 
-.seller-name-wrapper{
+.seller-name-wrapper {
   display: flex;
   width: 100%;
   margin-bottom: 0;
-  margin-bottom:0.5rem;
+  margin-bottom: 0.5rem;
   justify-content: center;
 }
 
-
-.seller-info-wrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200%;
-}
-
-
-
-.seller-info{
-  bottom: 50%;
+.seller-info {
   box-shadow: 6.8px 13.6px 13.6px hsl(0deg 0% 0% / 0.29);
   border-radius: 8px;
-  top: 50% ;
-  width: auto;
-  display: flex;
+
   padding: 1rem;
   padding-top: 0;
-  align-items: center;
   height: 15rem;
-  background-color:rgb(200, 200, 200) ;
+  background-color: rgb(200, 200, 200);
   margin: auto;
   position: absolute;
+  left: 0;
+  top: 40%;
+  bottom: 50%;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
 }
 
-
-
-.car-image-wrapper{
-  background:linear-gradient(135deg,rgba(270,270,270,0.1),rgba(270,270,270,0));
+.car-image-wrapper {
+  background: linear-gradient(
+    135deg,
+    rgba(270, 270, 270, 0.1),
+    rgba(270, 270, 270, 0)
+  );
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   /* border:solid 1px rgba(255,255,255,0.18) ; */
@@ -564,28 +538,26 @@ select {
   width: 100%;
   height: 100%;
 
-
   position: absolute;
 }
 
-.btn-wrapper{
+.btn-wrapper {
   display: flex;
 }
 
-.btn-wrapper span{
+.btn-wrapper span {
   position: absolute;
-  right:-6%;
+  right: -6%;
   cursor: pointer;
   top: -8%;
 }
 
-.btn-wrapper span:hover{
-
+.btn-wrapper span:hover {
   transform: scale(0.8);
   transition: transform 0.2s;
 }
 
-.zoom-btn-wrapper{
+.zoom-btn-wrapper {
   position: absolute;
   display: flex;
   overflow: hidden;
@@ -593,17 +565,15 @@ select {
   top: 0;
   left: 0;
   z-index: 100;
-
 }
 
-.zoom-btn-wrapper .zoom-out-btn{
-
+.zoom-btn-wrapper .zoom-out-btn {
   background: white;
-  margin-top:2.5rem;
+  margin-top: 2.5rem;
   padding: 5px;
   cursor: pointer;
 }
-.zoom-btn-wrapper .zoom-in-btn{
+.zoom-btn-wrapper .zoom-in-btn {
   background: white;
   padding: 5px;
   cursor: pointer;
@@ -611,35 +581,31 @@ select {
 
 .zoom-btn-wrapper .zoom-in-btn:hover {
   transform: scale(0.8);
-  transition:transform  0.2s;
+  transition: transform 0.2s;
 }
 
 .zoom-btn-wrapper .zoom-out-btn:hover {
   transform: scale(0.8);
-  transition:transform  0.2s;
+  transition: transform 0.2s;
 }
 .zoom-btn-wrapper .zoom-reset-btn:hover {
   transform: scale(0.8);
-  transition:transform  0.2s;
+  transition: transform 0.2s;
 }
 
-
-.zoom-btn-wrapper .zoom-reset-btn{
-
+.zoom-btn-wrapper .zoom-reset-btn {
   background: white;
   padding: 5px;
   cursor: pointer;
   margin-top: 2px;
 }
-.car-image-container{
+.car-image-container {
   height: 30rem;
   margin: auto;
-  position:relative;
+  position: relative;
   margin-top: 5rem;
   width: 50%;
   max-width: 50%;
-
-
 }
 
 .car-image {
@@ -651,9 +617,8 @@ select {
   overflow: hidden;
 }
 
-
-.car-image{
-  cursor: move; 
+.car-image {
+  cursor: move;
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
@@ -663,4 +628,25 @@ select {
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
+}
+
+.sell-car-btn-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.sell-car-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 1%;
+  width: 30%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00BFFF;
+  border: 0;
+
+  height: 2rem;
 }
