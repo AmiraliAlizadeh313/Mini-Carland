@@ -45,12 +45,31 @@ function App() {
   const [isShowSellerInfo, setIsShowSellerInfo] = useState(false);
   const [isShowForm,setIsShowForm] = useState(false)
 
+  function handleShowCard(){
+    
+      setIsCarCard(true)
+      setIsShowForm(false)
+  }
+
+  function handleShowForm(){
+    setIsCarCard(false)
+
+    setIsShowSellerInfo(false)
+    setIsShowForm(true)
+  }
+
+  function handleShowSellerInfo(){
+    setIsCarCard(false)
+    setIsShowSellerInfo(false)
+  }
+
   return (
     <>
       <div className="mini-carland">
-        <CarsList setIsCarCard={setIsCarCard} setIsShowForm={setIsShowForm}></CarsList>
+        <CarsList handleShowForm={handleShowForm}  handleShowCard={handleShowCard} setIsCarCard={setIsCarCard} setIsShowForm={setIsShowForm}></CarsList>
         {isCarCard ? (
           <CarCard
+            handleShowSellerInfo={handleShowSellerInfo}
             setIsCarCard={setIsCarCard}
             setIsImageZoom={setIsImageZoom}
             setIsShowSellerInfo={setIsShowSellerInfo}
@@ -67,13 +86,13 @@ function App() {
           ></ShowSellerInfo>
         ) : null}
         {isShowForm ?   <FormAddCar setIsShowForm={setIsShowForm} ></FormAddCar> :null}
-      
+       
       </div>
     </>
   );
 }
 
-function CarCard({ setIsImageZoom, setIsCarCard, setIsShowSellerInfo }) {
+function CarCard({ setIsImageZoom, setIsCarCard, setIsShowSellerInfo,handleShowSellerInfo }) {
   return (
     <>
       <div className="card-wrapper">
@@ -122,7 +141,7 @@ function CarCard({ setIsImageZoom, setIsCarCard, setIsShowSellerInfo }) {
               <text>Contact</text>
             </div>
           </button>
-          <button onClick={() => setIsCarCard(false)} className="close-button">
+          <button onClick={() => handleShowSellerInfo()} className="close-button">
             <img src={require("./images/icons8-close-50 (1).png")}></img>
           </button>
         </div>
@@ -221,20 +240,22 @@ function FormAddCar({setIsShowForm}) {
           </div>
         </form>
           <div className="form-buttons">
-            <button className="btn" onClick={()=>setIsShowForm(false)} >Cancel</button>
-            <button className="btn">Submit</button>
+            <button className="form-close-btn" onClick={()=>setIsShowForm(false)} ><img src={require("./images/icons8-close-50 (1).png")}></img></button>
+            <button className="form-submit-btn">Submit</button>
           </div>
       </div>
     </>
   );
 }
 
-function CarsList({ setIsCarCard , setIsShowForm}) {
+
+
+function CarsList({ setIsCarCard , setIsShowForm , handleShowCard ,handleShowForm}) {
   return (
     <>
       <div className="cars-list-wrapper">
         <ul className="cars-list">
-          <li onClick={() => setIsCarCard(true)} className="cars-item">
+          <li onClick={() => handleShowCard()} className="cars-item">
             <div class="item-image">
               <img src={require("./images/Toyotaimage.jpg")} alt="toyota"></img>
             </div>
@@ -251,7 +272,7 @@ function CarsList({ setIsCarCard , setIsShowForm}) {
             </div>
           </li>
         </ul>
-        <div className="sell-car-btn-wrapper"><button onClick={()=>{setIsShowForm(true)}} className="sell-car-btn"> Sell Your Car </button></div>
+        <div className="sell-car-btn-wrapper"><button onClick={()=>{handleShowForm()}} className="sell-car-btn"> Sell Your Car </button></div>
         </div>
 
     </>

@@ -258,19 +258,45 @@ select {
   justify-content: space-between;
 }
 
-.btn {
+
+.form-submit-btn {
+  width:fit-content;
+
   padding: 8px;
   border-radius: 4px;
   margin-top: 2rem;
-  background-color: rgb(200, 200, 200);
+  background-color:#00BFFF;
   border: 0;
 }
 
-.btn:hover {
-  background-color: rgb(210, 210, 210);
+
+.form-submit-btn:hover {
+  background-color: #87CEFA;
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(0.9);
   transition: all 0.2s;
+}
+
+
+.form-close-btn {
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 2rem;
+  background-color:#cf1020;
+  border: 0;
+
+}
+.form-close-btn:hover {
+  background-color:#ff004f;
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: all 0.2s;
+}
+
+.form-close-btn img {
+  
+  height: 1.3rem;
+
 }
 
 .form-add-car {
@@ -656,5 +682,6 @@ select {
 .sell-car-btn:hover{
   transform: scale(0.9);
   cursor: pointer;
+  background-color: #87CEFA;
   transition: all 0.3s;
 }
