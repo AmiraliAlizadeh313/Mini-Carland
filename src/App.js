@@ -43,11 +43,12 @@ function App() {
   const [isImageZoom, setIsImageZoom] = useState(false);
   const [isCarCard, setIsCarCard] = useState(false);
   const [isShowSellerInfo, setIsShowSellerInfo] = useState(false);
+  const [isShowForm,setIsShowForm] = useState(false)
 
   return (
     <>
       <div className="mini-carland">
-        <CarsList setIsCarCard={setIsCarCard}></CarsList>
+        <CarsList setIsCarCard={setIsCarCard} setIsShowForm={setIsShowForm}></CarsList>
         {isCarCard ? (
           <CarCard
             setIsCarCard={setIsCarCard}
@@ -65,8 +66,8 @@ function App() {
             setIsShowSellerInfo={setIsShowSellerInfo}
           ></ShowSellerInfo>
         ) : null}
-
-        {/* <FormAddCar></FormAddCar> */}
+        {isShowForm ?   <FormAddCar setIsShowForm={setIsShowForm} ></FormAddCar> :null}
+      
       </div>
     </>
   );
@@ -177,58 +178,58 @@ function ShowSellerInfo({ setIsShowSellerInfo }) {
   );
 }
 
-function FormAddCar() {
+function FormAddCar({setIsShowForm}) {
   return (
     <>
-      <form className="form-add-car">
-        <div className="input-model">
-          <label>Car Model</label>
-          <input type="text"></input>
-        </div>
-        <div className="input-company">
-          <label>Car Company</label>
-          <input type="text"></input>
-        </div>
-        <div className="input-color">
-          <label>Car Color</label>
-          <select>
-            <option>White</option>
-            <option>Black</option>
-            <option>Gray</option>
-            <option>Red</option>
-            <option>Blue</option>
-            <option>Navy blue</option>
-            <option>Slime green</option>
-          </select>
-        </div>
-        <div className="input-price">
-          <label>Car Price</label>
-          <input type="number"></input>
-        </div>
-        <div className="input-madein">
-          <label>Car Made in</label>
-          <input type="number"></input>
-        </div>
-        <div className="input-description">
-          <label>Car Information</label>
-          <textarea type="text"></textarea>
-        </div>
-
-        <div className="input-image">
-          <label> Car Image</label>
-          <input type="image"></input>
-        </div>
-
-        <div className="form-buttons">
-          <Button>Cancel</Button>
-          <Button>Submit</Button>
-        </div>
-      </form>
+      <div className="form-add-car">
+        <form className="">
+          <div className="input-model">
+            <label>Car Model</label>
+            <input type="text"></input>
+          </div>
+          <div className="input-company">
+            <label>Car Company</label>
+            <input type="text"></input>
+          </div>
+          <div className="input-color">
+            <label>Car Color</label>
+            <select>
+              <option>White</option>
+              <option>Black</option>
+              <option>Gray</option>
+              <option>Red</option>
+              <option>Blue</option>
+              <option>Navy blue</option>
+              <option>Slime green</option>
+            </select>
+          </div>
+          <div className="input-price">
+            <label>Car Price</label>
+            <input type="number"></input>
+          </div>
+          <div className="input-madein">
+            <label>Car Made in</label>
+            <input type="number"></input>
+          </div>
+          <div className="input-description">
+            <label>Car Information</label>
+            <textarea type="text"></textarea>
+          </div>
+          <div className="input-image">
+            <label> Car Image</label>
+            <input type="image"></input>
+          </div>
+        </form>
+          <div className="form-buttons">
+            <button className="btn" onClick={()=>setIsShowForm(false)} >Cancel</button>
+            <button className="btn">Submit</button>
+          </div>
+      </div>
     </>
   );
 }
 
-function CarsList({ setIsCarCard }) {
+function CarsList({ setIsCarCard , setIsShowForm}) {
   return (
     <>
       <div className="cars-list-wrapper">
@@ -250,16 +251,13 @@ function CarsList({ setIsCarCard }) {
             </div>
           </li>
         </ul>
-        <div className="sell-car-btn-wrapper"><button className="sell-car-btn"> Sell Your Car </button></div>
+        <div className="sell-car-btn-wrapper"><button onClick={()=>{setIsShowForm(true)}} className="sell-car-btn"> Sell Your Car </button></div>
         </div>
 
     </>
   );
 }
 
-function Button({ children }) {
-  return <button className="btn">{children}</button>;
-}
 
 function Controls() {
   const { zoomIn, zoomOut, resetTransform } = useControls();
