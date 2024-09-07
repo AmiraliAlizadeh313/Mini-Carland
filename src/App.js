@@ -14,7 +14,9 @@ const Cars = [
     image: "https://eghtesaad24.ir/files/fa/news/1402/10/27/588457_459.png",
     color: "Black",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
+      "A new model from mercedes",
+
+    price:70000,
   },
   {
     id: 933372,
@@ -26,58 +28,77 @@ const Cars = [
     color: "White",
     description:
       "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
+    price:50000,
   },
   {
     id: 499476,
     model: "2 Series Coupe",
     company: "BMW",
     madein: 2020,
-    image: "https://i.pravatar.cc/48?u=499476",
+    image: "https://1car.ir/thumbnails/mark/1car.ir-BMW-2-Series-Convertible-2015.jpg",
     color: "Gray",
     description:
       "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
+    price:60000,
   },
+
 ];
 
 function App() {
   const [isImageZoom, setIsImageZoom] = useState(false);
   const [isCarCard, setIsCarCard] = useState(false);
   const [isShowSellerInfo, setIsShowSellerInfo] = useState(false);
-  const [isShowForm,setIsShowForm] = useState(false)
+  const [isShowForm, setIsShowForm] = useState(false);
+  const [selectedCar, setSelectedCar] = useState(null);
+  const [car, setCar] = useState(Cars);
 
-  function handleShowCard(){
-    
-      setIsCarCard(true)
-      setIsShowForm(false)
+  function handleSelection(car) {
+    setSelectedCar((cur) => cur?.id === car.id ? cur : car);
+    setIsCarCard(true);
+    setIsShowForm(false);
   }
 
-  function handleShowForm(){
-    setIsCarCard(false)
-
-    setIsShowSellerInfo(false)
-    setIsShowForm(true)
+  function handleShowCard() {
+   
+    setIsShowForm(false);
   }
 
-  function handleShowSellerInfo(){
-    setIsCarCard(false)
-    setIsShowSellerInfo(false)
+  function handleShowForm() {
+    setIsCarCard(false);
+
+    setIsShowSellerInfo(false);
+    setIsShowForm(true);
+  }
+
+  function handleShowSellerInfo() {
+    setIsCarCard(false);
+    setIsShowSellerInfo(false);
   }
 
   return (
     <>
       <div className="mini-carland">
-        <CarsList handleShowForm={handleShowForm}  handleShowCard={handleShowCard} setIsCarCard={setIsCarCard} setIsShowForm={setIsShowForm}></CarsList>
+        <CarsList
+          onSelection={handleSelection}
+          car={car}
+          handleShowForm={handleShowForm}
+          handleShowCard={handleShowCard}
+          setIsCarCard={setIsCarCard}
+          setIsShowForm={setIsShowForm}
+          selectedCar={selectedCar}
+        ></CarsList>
         {isCarCard ? (
           <CarCard
             handleShowSellerInfo={handleShowSellerInfo}
             setIsCarCard={setIsCarCard}
             setIsImageZoom={setIsImageZoom}
             setIsShowSellerInfo={setIsShowSellerInfo}
+            selectedCar={selectedCar}
           ></CarCard>
         ) : null}
 
         {isImageZoom ? (
-          <CarImage setIsImageZoom={setIsImageZoom}></CarImage>
+          <CarImage selectedCar={selectedCar} setIsImageZoom={setIsImageZoom}></CarImage>
         ) : null}
 
         {isShowSellerInfo ? (
@@ -85,43 +106,47 @@ function App() {
             setIsShowSellerInfo={setIsShowSellerInfo}
           ></ShowSellerInfo>
         ) : null}
-        {isShowForm ?   <FormAddCar setIsShowForm={setIsShowForm} ></FormAddCar> :null}
-       
+        {isShowForm ? (
+          <FormAddCar setIsShowForm={setIsShowForm}></FormAddCar>
+        ) : null}
       </div>
     </>
   );
 }
 
-function CarCard({ setIsImageZoom, setIsCarCard, setIsShowSellerInfo,handleShowSellerInfo }) {
+function CarCard({
+  selectedCar,
+  setIsImageZoom,
+  setIsCarCard,
+  setIsShowSellerInfo,
+  handleShowSellerInfo,
+}) {
   return (
     <>
       <div className="card-wrapper">
         <div className="car-card">
           <div onClick={() => setIsImageZoom(true)} className="card-image">
-            <img alt="image" src={require("./images/Toyotaimage.jpg")}></img>
+            <img alt="image" src={selectedCar.image}></img>
           </div>
           <div className="card-content">
             <div className="card-title">
-              <h2 className="card-model">Landcruiser</h2>
-              <span>Toyota</span>
+              <h2 className="card-model">{selectedCar.model}</h2>
+              <span>{selectedCar.company}</span>
             </div>
             <ul className="card-marks">
               <li>
-                <span>Price $1000000</span>
+                <span>Price {selectedCar.price}</span>
               </li>
               <li>
-                <span>Made in 2023</span>
+                <span>Made in {selectedCar.madein}</span>
               </li>
               <li>
-                <span>Color Black</span>
+                <span>Color {selectedCar.color}</span>
               </li>
             </ul>
             <div className="card-description">
               <p>
-                In publishing and graphic design, Lorem ipsum is a placeholder
-                text commonly used to demonstrate the visual form of a document
-                or a typeface without relying on meaningful content. Lorem ipsum
-                may be used as a placeholder before the final copy is available
+                {selectedCar.description}
               </p>
             </div>
           </div>
@@ -141,7 +166,10 @@ function CarCard({ setIsImageZoom, setIsCarCard, setIsShowSellerInfo,handleShowS
               <text>Contact</text>
             </div>
           </button>
-          <button onClick={() => handleShowSellerInfo()} className="close-button">
+          <button
+            onClick={() => handleShowSellerInfo()}
+            className="close-button"
+          >
             <img src={require("./images/icons8-close-50 (1).png")}></img>
           </button>
         </div>
@@ -197,7 +225,7 @@ function ShowSellerInfo({ setIsShowSellerInfo }) {
   );
 }
 
-function FormAddCar({setIsShowForm}) {
+function FormAddCar({ setIsShowForm }) {
   return (
     <>
       <div className="form-add-car">
@@ -239,46 +267,77 @@ function FormAddCar({setIsShowForm}) {
             <input type="image"></input>
           </div>
         </form>
-          <div className="form-buttons">
-            <button className="form-close-btn" onClick={()=>setIsShowForm(false)} ><img src={require("./images/icons8-close-50 (1).png")}></img></button>
-            <button className="form-submit-btn">Submit</button>
-          </div>
+        <div className="form-buttons">
+          <button
+            className="form-close-btn"
+            onClick={() => setIsShowForm(false)}
+          >
+            <img src={require("./images/icons8-close-50 (1).png")}></img>
+          </button>
+          <button className="form-submit-btn">Submit</button>
+        </div>
       </div>
     </>
   );
 }
 
+function Car({ car, handleShowCard , onSelection ,selectedCar}) {
 
-
-function CarsList({ setIsCarCard , setIsShowForm , handleShowCard ,handleShowForm}) {
   return (
     <>
-      <div className="cars-list-wrapper">
-        <ul className="cars-list">
-          <li onClick={() => handleShowCard()} className="cars-item">
-            <div class="item-image">
-              <img src={require("./images/Toyotaimage.jpg")} alt="toyota"></img>
-            </div>
-            <div className="item-content">
-              <div className="item-title">
-                <h2 className="item-model">Landcruiser </h2>
-                <span className="item-company"> Toyota</span>
-              </div>
-              <div class="item-marks">
-                <span>Price $1000000</span>
-                <span className="item-madein">Made in 2023</span>
-                <span className="item-color">Black</span>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div className="sell-car-btn-wrapper"><button onClick={()=>{handleShowForm()}} className="sell-car-btn"> Sell Your Car </button></div>
+      <li onClick={() => onSelection(car)} className="cars-item">
+        <div class="item-image">
+          <img src={car.image} alt="toyota"></img>
         </div>
-
+        <div className="item-content">
+          <div className="item-title">
+            <h2 className="item-model">{car.model} </h2>
+            <span className="item-company"> {car.company}</span>
+          </div>
+          <div class="item-marks">
+            <span>$ {car.price}</span>
+            <span className="item-madein">{car.madein}</span>
+            <span className="item-color">{car.color}</span>
+          </div>
+        </div>
+      </li>
     </>
   );
 }
 
+function CarsList({
+  setIsCarCard,
+  setIsShowForm,
+  handleShowCard,
+  handleShowForm,
+  car,
+  selectedCar,
+  onSelection,
+}) {
+  return (
+    <>
+      <div className="cars-list-wrapper">
+        <ul className="cars-list">
+          {car.map((car) => {
+            return <Car car={car} onSelection={onSelection} handleShowCard={handleShowCard} selectedCar={selectedCar}></Car>;
+          })}
+
+        </ul>
+          <div className="sell-car-btn-wrapper">
+            <button
+              onClick={() => {
+                handleShowForm();
+              }}
+              className="sell-car-btn"
+            >
+              {" "}
+              Sell Your Car{" "}
+            </button>
+          </div>
+      </div>
+    </>
+  );
+}
 
 function Controls() {
   const { zoomIn, zoomOut, resetTransform } = useControls();
@@ -309,7 +368,7 @@ function Controls() {
   );
 }
 
-function CarImage({ setIsImageZoom }) {
+function CarImage({ setIsImageZoom , selectedCar }) {
   return (
     <>
       <div style={{ overflow: "hidden" }} className="car-image-wrapper">
@@ -333,7 +392,7 @@ function CarImage({ setIsImageZoom }) {
                   <TransformComponent>
                     <img
                       className="car-image"
-                      src={require("./images/Toyotaimage.jpg")}
+                      src={selectedCar.image}
                     ></img>
                   </TransformComponent>
                 </>
