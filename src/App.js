@@ -1,3 +1,6 @@
+//Mini-Carland
+
+
 import { useState } from "react";
 import {
   TransformComponent,
@@ -394,6 +397,7 @@ function FormAddCar({ setIsShowForm, onAddCar }) {
               name="Choose Image"
               onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
             ></input>
+
           </div>
 
           <div className="form-buttons">
